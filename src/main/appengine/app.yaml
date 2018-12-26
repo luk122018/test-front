@@ -1,0 +1,8 @@
+service: demo-front
+runtime: vuejs
+env: flex
+
+handlers:
+- url: /.*
+  script: this field is required, but ignored
+  
