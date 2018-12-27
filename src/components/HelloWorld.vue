@@ -27,14 +27,35 @@
       <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
     </ul>
-  </div>
+
+  <p>
+      msgAPI: {{msgAPI}}
+   </p>
+
+</div>  
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'HelloWorld',
-  props: {
-    msg: String
+  data(){
+      return {
+          data: '',
+          msg: ''
+      }
+  },
+  computed:
+  {
+    msgAPI: function (){
+     return this.data;
+    }
+  },
+  created(){
+      axios
+      .get('https://demo-middle-dot-test-project-225209.appspot.com/')
+      .then(response => (this.data = response.data))
   }
 }
 </script>
